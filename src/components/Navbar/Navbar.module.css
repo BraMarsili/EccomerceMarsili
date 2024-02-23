@@ -1,5 +1,90 @@
-.header {
+.navbar {
+    padding: 0.8rem 2.8rem 0px 2.8rem;
+    background-color: #ffe600;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.container_fluid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left_navbar {
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+
+.left_navbar_links {
+    width: 35rem;
+}
+
+.left_navbar_links ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.left_navbar_links ul li {
+    margin-right: .8rem;
+}
+
+.left_navbar img {
+    margin-right: 1rem;
+}
+
+.searchbar_navbar form {
+    max-width: 720px;
+    width: 580px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    padding-left: 0px;
+    border-radius: 2px;
+}
+
+.searchbar_navbar form input {
+    border: 0px solid white;
+    padding: 8px 0px 8px 15px;
+}
+
+.searchbar_navbar input[type="search"]::placeholder {
+    color: rgba(0,0,0,.5490196078);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.searchbar_navbar .button {
+    background-color: white;
+    box-shadow: 0px 0px 0px;
+    border: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 2px;
+}
+
+.searchbar_navbar svg {
+    padding-bottom: 2px;
+}
+
+
+.disney_navbar img {
+    width: 22rem;
+    height: 2.5rem;
+}
+
+.container_fluid_subnavbar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: .5rem;
+}
+
+.location {
+    padding-top: .5rem;
+    color: #5a5c5e;
+    display: flex;
+    align-items: flex-start;
+    font-size: 13px;
 }
