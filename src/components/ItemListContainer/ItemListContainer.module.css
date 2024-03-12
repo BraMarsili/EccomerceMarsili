@@ -1,8 +1,8 @@
-.greetings {
+.listContainer {
     display: flex;
     width: 100%;
-    height: 30rem;
+    height: auto;
     justify-content: center;
     align-items: center;
-    font-size: 150px;
+    padding: 30px 5px 0px 100px;
 }

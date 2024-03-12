@@ -18,6 +18,10 @@
     justify-content: center;
 }
 
+.left_navbar h1{
+    all: unset;
+}
+
 .left_navbar_links {
     width: 35rem;
 }

@@ -1,0 +1,47 @@
+.mainDiv {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.25);
+    min-width: 800px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.mainDiv img {
+    height: 450px;
+    width: 400px;
+}
+
+.details {
+    width: 300px;
+    padding: 25px 10px 0px 10px;
+}
+
+.details h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.details p {
+    font-size: 36px;
+    font-weight: 300;
+}
+
+.details h2 {
+    font-size: 15px;
+}
+
+.counter {
+    border: 1.1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    padding: 40px;
+}
+
+.counter p {
+    color: #00a650;
+}
+

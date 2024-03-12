@@ -1,12 +1,15 @@
 import styles from './Navbar.module.css'
 import CartWidget from '../CartWidget/CartWidget'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.container_fluid}>
                 <div className={styles.left_navbar}>
-                    <a className="navbar-brand" href="#"><img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/6.6.15/mercadolibre/logo_large_plus.webp" alt="Mercado Libre"/></a>
+                    <h1>
+                        <Link className="navbar-brand" to="/EcommerceMarsili"><img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/6.6.15/mercadolibre/logo_large_plus.webp" alt="Mercado Libre"/></Link>
+                    </h1>
                 </div>
                 <div className={styles.searchbar_navbar}>
                     <form className="d-flex" role="search">
@@ -29,13 +32,13 @@ const Navbar = () => {
                 <div className={styles.left_navbar_links}>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Notebooks</a>
+                            <Link className="nav-link active" to="/EcommerceMarsili/category/notebook">Notebooks</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Smart TVs</a>
+                            <Link className="nav-link active" to="/EcommerceMarsili/category/televisor">Smart TVs</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Heladeras</a>
+                            <Link className="nav-link active" to="/EcommerceMarsili/category/celular">Celulares</Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Historial</a>

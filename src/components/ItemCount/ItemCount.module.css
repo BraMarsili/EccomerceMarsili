@@ -1,0 +1,19 @@
+.counter h1{
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.counter h2{
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.counter div {
+    display: flex;
+    flex-direction: column;
+}
+
+.counter button {
+    margin-bottom: 15px;
+}
