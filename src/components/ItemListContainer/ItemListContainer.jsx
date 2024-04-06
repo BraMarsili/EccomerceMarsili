@@ -2,58 +2,32 @@ import styles from './ItemListContainer.module.css'
 import { useState, useEffect, memo } from 'react'
 import { useParams } from "react-router-dom"
 import ItemList from "../ItemList/ItemList"
-import { getDocs, collection, query, where, orderBy} from 'firebase/firestore'
-import { db } from "../../services/firebase/firebaseConfig"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getProducts } from '../../services/firebase/firestore/products'
+import { useAsync } from '../../hooks/useAsync';
 
 const ItemListMemoized = memo(ItemList)
 
 const ItemListContainer = () => {
 
-    const [products, setProducts] = useState()
-
-    const [render, setRender] = useState(false)
-
     const { categoryId } = useParams()
 
-    const notifyError = () => {
-        toast.error("Error al cargar los productos");
+    const asyncFunction = () => getProducts(categoryId)
+
+    const { data: products, loading, error } = useAsync(asyncFunction, [categoryId])
+
+    if(loading) {
+        return <img className={styles.spin} width="96" height="96" src="https://img.icons8.com/material-two-tone/96/spinner-frame-5.png" alt="spinner-frame-5"/>
+    }    
+
+    if(error) {
+        return <h1>Hubo un error al cargar los productos...</h1>
     }
-
-    useEffect(() => {
-        setTimeout(() => {
-            setRender(prev => !prev)
-        }, 500)
-    }, [])
-
-    useEffect (() => {
-        
-        const productsCollection = categoryId ? (
-            query(collection(db, 'products'), where('category', '==', categoryId))
-        ) : (
-            query(collection(db, 'products'), orderBy('price','asc'))
-        )
-
-        getDocs(productsCollection)
-            .then(querySnapshot => {
-                const productsAdapted = querySnapshot.docs.map(doc => {
-                    const data = doc.data()
-
-                    return { id: doc.id, ...data}
-                })
-
-                setProducts(productsAdapted)
-            })
-            .catch(() => {
-                notifyError()
-            }) 
-    },[categoryId])
 
     return (
         <div className={styles.listContainer}>
             <ItemListMemoized products={products}/>
-            <ToastContainer />
         </div>
     )
 }
