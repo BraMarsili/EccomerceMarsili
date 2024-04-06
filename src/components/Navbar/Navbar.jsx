@@ -30,7 +30,7 @@ const Navbar = () => {
             <div className={styles.container_fluid}>
                 <div className={styles.left_navbar}>
                     <h1>
-                        <Link className="navbar-brand" to="/EcommerceMarsili"><img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/6.6.15/mercadolibre/logo_large_plus.webp" alt="Mercado Libre"/></Link>
+                        <Link className="navbar-brand" to="/"><img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/6.6.15/mercadolibre/logo_large_plus.webp" alt="Mercado Libre"/></Link>
                     </h1>
                 </div>
                 <div className={styles.searchbar_navbar}>
@@ -57,7 +57,7 @@ const Navbar = () => {
                             categories.map(cat => {
                                 return (
                                     <li className="nav-item">
-                                        <Link className="nav-link active" key={cat.id} to={`/EcommerceMarsili/category/${cat.slug}`}>{cat.name}</Link>
+                                        <Link className="nav-link active" key={cat.id} to={`/category/${cat.slug}`}>{cat.name}</Link>
                                     </li>
                                 )
                             })

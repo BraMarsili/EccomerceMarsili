@@ -87,7 +87,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description, envio}
                         <ItemCountCh onAdd={handleOnAdd} stock={stock} />
                     ) : (
                         <div style={{display:'flex', flexDirection: 'column'}}>
-                            <Link style={{marginBottom: 10}}className='btn btn-primary' to='/EcommerceMarsili/cart'>Finalizar compra</Link>
+                            <Link style={{marginBottom: 10}}className='btn btn-primary' to='/cart'>Finalizar compra</Link>
                             <Link to='/EcommerceMarsili' className='btn btn-primary'>Ver otros productos</Link>
                         </div>
                     )

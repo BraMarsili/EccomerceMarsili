@@ -28,8 +28,7 @@ const CartView = () => {
             }
             </section>
             <div>
-
-                <Link className='btn btn-primary' to='/EcommerceMarsili/checkout'>Checkout</Link>
+                <Link className='btn btn-primary' to='/checkout'>Checkout</Link>
             </div>
         </div>
     )

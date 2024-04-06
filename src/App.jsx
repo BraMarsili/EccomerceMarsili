@@ -15,11 +15,11 @@ function App() {
           <CartProvider>
             <Navbar/>
             <Routes>
-              <Route path='/EcommerceMarsili' element={<ItemListContainer greeting = {'Bienvenidos!'}/>}/>
-              <Route path='/EcommerceMarsili/category/:categoryId' element={<ItemListContainer greeting={'Listado de productos filtrados'}/>}/>
-              <Route path='/EcommerceMarsili/item/:itemId' element={<ItemDetailContainer />}/>
-              <Route path='/EcommerceMarsili/cart' element={<CartView/>}/>
-              <Route path='/EcommerceMarsili/checkout' element={<Checkout/>}/>
+              <Route path='/' element={<ItemListContainer greeting = {'Bienvenidos!'}/>}/>
+              <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Listado de productos filtrados'}/>}/>
+              <Route path='/item/:itemId' element={<ItemDetailContainer />}/>
+              <Route path='/cart' element={<CartView/>}/>
+              <Route path='/checkout' element={<Checkout/>}/>
             </Routes>
           </CartProvider>
         </BrowserRouter>

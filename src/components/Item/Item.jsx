@@ -11,7 +11,7 @@ const Item = ({ id, name, img, price, envio}) => {
 
     const handleItemClick = (e) => {
         handleClick(e);
-        navigate(`/EcommerceMarsili/item/${id}`);
+        navigate(`/item/${id}`);
     }
 
 
