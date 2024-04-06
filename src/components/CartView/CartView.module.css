@@ -47,3 +47,13 @@ section {
 .name {
     font-weight: bold;
 }
+
+.cartButtons {
+    display: flex;
+    flex-direction: row;
+}
+
+.cartButtons h2 {
+    font-size: 30px;
+    font-weight: 600;
+}

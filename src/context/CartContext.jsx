@@ -23,8 +23,18 @@ export const CartProvider = ({ children }) => {
     }
 
     const removeItem = (id) => {
-      const updatedCart = cart.filter(prod => prod.id !== id)
-      setCart(updatedCart)
+      const updatedCart = cart.map(prod => {
+        if (prod.id === id) {
+          if (prod.quantity > 1) {
+            return { ...prod, quantity: prod.quantity - 1 };
+          } else {
+            return null;
+          }
+        } else {
+          return prod;
+        }
+      }).filter(Boolean);
+      setCart(updatedCart);
     }
   
     const getTotalQuantity = () => {

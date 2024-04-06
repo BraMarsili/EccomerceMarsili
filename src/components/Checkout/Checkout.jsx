@@ -128,8 +128,8 @@ const Checkout = () => {
     return  (
         <div className={styles.formCheckout}>
             <form>
-                <div class="mb-3">
-                    <label class="form-label">Nombre</label>
+                <div className="mb-3">
+                    <label className="form-label">Nombre</label>
                     <input 
                         type="text" 
                         className="form-control" 
@@ -140,8 +140,8 @@ const Checkout = () => {
                     />
                     {formErrors.name && <div className="text-danger">{formErrors.name}</div>}
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
+                <div className="mb-3">
+                    <label className="form-label">Email</label>
                     <input 
                         type="email" 
                         className="form-control" 
@@ -152,8 +152,8 @@ const Checkout = () => {
                     />
                     {formErrors.email && <div className="text-danger">{formErrors.email}</div>}
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Numero de contacto</label>
+                <div className="mb-3">
+                    <label className="form-label">Numero de contacto</label>
                     <input 
                         type="text" 
                         className="form-control" 

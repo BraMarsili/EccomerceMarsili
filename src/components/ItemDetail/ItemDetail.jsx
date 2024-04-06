@@ -6,22 +6,22 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CartContext } from '../../context/CartContext';
 
+const notify = () => {
+    toast.success("Los productos se han agregado al carrito!");
+}
+
+const notifyError = () => {
+    toast.error("Por favor, ingrese una cantidad válida");
+}
+
 
 const InputCount = ({ onAdd, stock, initial= 1 }) => {
     const [count, setCount] = useState(initial)
 
-    const notifyError = () => {
-        toast.error("Por favor, ingrese una cantidad válida");
-    }
-
-    const notify = () => {
-        toast.success("Los productos se han agregado al carrito!");
-    }
 
     const handleClick = () => {
         if (count >= 1 && count <= stock) {
             onAdd(count);
-            notify()
         } else {
             notifyError();
         }
@@ -38,8 +38,8 @@ const InputCount = ({ onAdd, stock, initial= 1 }) => {
             <h2>Stock disponible: {stock}</h2>
             <input type='number' className='form-control' onChange={handleChange} value={count}/>
             <button className='btn btn-primary' onClick={handleClick}>Agregar al carrito</button>
-            <ToastContainer />
         </div>
+
     )
 }
 
@@ -53,9 +53,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description, envio}
 
     const { addItem, isInCart } = useContext(CartContext)
 
-    const notify = () => {
-        toast.success("Los productos se han agregado al carrito!");
-    }
+
 
     const handleOnAdd = (quantity) => {
         const objProductToAdd = {
@@ -88,7 +86,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description, envio}
                     ) : (
                         <div style={{display:'flex', flexDirection: 'column'}}>
                             <Link style={{marginBottom: 10}}className='btn btn-primary' to='/cart'>Finalizar compra</Link>
-                            <Link to='/EcommerceMarsili' className='btn btn-primary'>Ver otros productos</Link>
+                            <Link to='/' className='btn btn-primary'>Ver otros productos</Link>
                         </div>
                     )
                 }
@@ -97,7 +95,6 @@ const ItemDetail = ({ id, name, category, img, price, stock, description, envio}
                         Cambiar contador
                     </button>
                 )}
-                <ToastContainer />
             </div>
         </main>
     )
