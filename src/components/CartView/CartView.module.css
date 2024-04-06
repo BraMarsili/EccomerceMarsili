@@ -40,7 +40,10 @@ section {
 }
 
 .itemCart img {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 110px;
 }
 
+.name {
+    font-weight: bold;
+}

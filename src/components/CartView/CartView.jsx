@@ -17,7 +17,7 @@ const CartView = () => {
                                 <img src={prod.img} alt={prod.name} />
                             </div>
                             <div>
-                                <h2>{prod.name}</h2>
+                                <h2 className={styles.name}>{prod.name}</h2>
                                 <h2>Cantidad: {prod.quantity}</h2>
                                 <h2>${total}</h2>
                             <button className='btn btn-secondary' onClick={() => removeItem(prod.id)}>Eliminar</button>
@@ -28,6 +28,7 @@ const CartView = () => {
             }
             </section>
             <div>
+
                 <Link className='btn btn-primary' to='/EcommerceMarsili/checkout'>Checkout</Link>
             </div>
         </div>
