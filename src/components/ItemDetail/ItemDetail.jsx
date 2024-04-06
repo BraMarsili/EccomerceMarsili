@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { CartContext } from '../../context/cartContext';
+import { CartContext } from '../../context/CartContext';
 
 
 const InputCount = ({ onAdd, stock, initial= 1 }) => {

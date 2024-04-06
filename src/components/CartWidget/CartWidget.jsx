@@ -1,7 +1,7 @@
 import styles from './CartWidget.module.css'
 import { Navigate, useNavigate } from "react-router-dom"
 import { useContext } from 'react'
-import { CartContext } from '../../context/cartContext'
+import { CartContext } from '../../context/CartContext'
 
 const CartWidget = () => {
 
