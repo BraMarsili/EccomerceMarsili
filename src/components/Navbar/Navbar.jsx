@@ -1,8 +1,30 @@
 import styles from './Navbar.module.css'
 import CartWidget from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { collection, getDocs, orderBy, query, limit } from 'firebase/firestore'
+import { db } from '../../services/firebase/firebaseConfig'
 
 const Navbar = () => {
+
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        const categoriesCollection = query(collection(db, 'categories'), orderBy('order','asc'))
+        
+        getDocs(categoriesCollection)
+            .then(querySnapshot => {
+                const categoriesAdapted = querySnapshot.docs.map(doc => {
+                    const data = doc.data()
+                    return { id: doc.id, ...data}
+                })
+                setCategories(categoriesAdapted)
+            })
+            .catch(error => {
+                console.error('error')
+            })
+    }, [])
+
     return (
         <nav className={styles.navbar}>
             <div className={styles.container_fluid}>
@@ -31,15 +53,15 @@ const Navbar = () => {
                 </div>
                 <div className={styles.left_navbar_links}>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link className="nav-link active" to="/EcommerceMarsili/category/notebook">Notebooks</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link active" to="/EcommerceMarsili/category/televisor">Smart TVs</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link active" to="/EcommerceMarsili/category/celular">Celulares</Link>
-                        </li>
+                        {
+                            categories.map(cat => {
+                                return (
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" key={cat.id} to={`/EcommerceMarsili/category/${cat.slug}`}>{cat.name}</Link>
+                                    </li>
+                                )
+                            })
+                        }
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Historial</a>
                         </li>

@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react"
-import { getProductById } from "../../asyncMock"
+import { useState, useEffect, memo } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import { getDoc, doc } from "firebase/firestore"
+import { db } from "../../services/firebase/firebaseConfig"
 
+const ItemDetailMemoized = memo (ItemDetail)
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
@@ -10,16 +12,24 @@ const ItemDetailContainer = () => {
     const { itemId } = useParams()
 
     useEffect(() => {
-        getProductById(itemId)
-            .then(response => {
-                setProduct(response)
+        const productDoc = doc(db, 'products', itemId)
+
+        getDoc(productDoc)
+            .then(queryDocumentSnapshot => {
+                const data = queryDocumentSnapshot.data()
+                const productAdapted = { id: queryDocumentSnapshot.id, ...data}
+
+                setProduct(productAdapted)
+            })
+            .catch(error => {
+                console.log(error)
             })
     }, [itemId])
 
 
     return (
         <div style={{backgroundColor: 'rgba(0, 0, 0, .1)', paddingTop: '30px', display: 'flex', justifyContent: 'center'}}>
-            <ItemDetail {...product} />
+            <ItemDetailMemoized {...product} />
         </div>
     )
 }
